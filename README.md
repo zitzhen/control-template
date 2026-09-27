@@ -32,3 +32,7 @@
     "1.1.0"
   ]
 ```
+
+©[Your Name] [Year]
+
+>use zitzhen/control-template template
