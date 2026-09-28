@@ -1,0 +1,15 @@
+name: Sync to CoCo-Community
+on:
+  push:
+    branches: ${branch.value || 'main'}
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify CoCo-Community sync
+        run: |
+          curl --fail -X POST \\
+            -H "Authorization: Bearer \${{ secrets.COCO_SYNC_SECRET }}" \\
+            -H "Content-Type: application/json" \\
+            -d '{"controlName":"${boundName.value}"}' \\
+            https://cc.zitzhen.cn/api/github-sync/sync
